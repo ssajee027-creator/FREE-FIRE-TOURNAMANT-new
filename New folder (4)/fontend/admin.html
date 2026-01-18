@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin • Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html" class="brandLink">
+        <img src="assets/logo.png" class="logo" alt="logo" />
+        <div class="brandText">
+          <div class="brandTitle">SPIDER FF</div>
+          <div class="brandSub">ADMIN PANEL</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="schedule.html">SCHEDULE</a>
+      <a href="leaderboard.html">LEADERBOARD</a>
+      <a href="register.html">REGISTER</a>
+      <a class="ctaSmall" href="admin.html">ADMIN</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Head -->
+    <section class="pageHead">
+      <div class="chip">ADMIN ONLY • APPROVE • PUBLISH • VERIFY</div>
+      <h1 class="title">CONTROL <span class="glow">CENTER</span></h1>
+      <p class="desc">
+        UI demo version. Backend connect pannina actions real-a work aagum.
+      </p>
+    </section>
+
+    <!-- Quick Controls -->
+    <section class="adminGrid">
+      <div class="glassCard adminCard">
+        <div class="cardTitle">TOURNAMENT STATUS</div>
+        <div class="cardText">DRAFT / REG_OPEN / LIVE / ENDED</div>
+        <div class="adminRow">
+          <select class="select">
+            <option>DRAFT</option>
+            <option selected>REG_OPEN</option>
+            <option>REG_CLOSED</option>
+            <option>LIVE</option>
+            <option>ENDED</option>
+          </select>
+          <button class="btnPrimary btnSmall" type="button">UPDATE</button>
+        </div>
+      </div>
+
+      <div class="glassCard adminCard">
+        <div class="cardTitle">ENTRY LIMIT</div>
+        <div class="cardText">Max teams allowed</div>
+        <div class="adminRow">
+          <input class="input" value="48" />
+          <button class="btnGhost btnSmall" type="button">SAVE</button>
+        </div>
+      </div>
+
+      <div class="glassCard adminCard">
+        <div class="cardTitle">ANNOUNCEMENT</div>
+        <div class="cardText">Show message on home page</div>
+        <div class="adminStack">
+          <input class="input" placeholder="TYPE ANNOUNCEMENT..." />
+          <button class="btnPrimary btnSmall" type="button">PUBLISH</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Approvals -->
+    <section class="panel">
+      <div class="panelTitle">TEAM APPROVALS</div>
+
+      <div class="tableWrap">
+        <table class="lbTable adminTable">
+          <thead>
+            <tr>
+              <th>TEAM</th>
+              <th>CAPTAIN</th>
+              <th>PHONE</th>
+              <th>PAYMENT</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>SHADOW KINGS</td>
+              <td>RAJ</td>
+              <td>+94 XXXXXXXX</td>
+              <td>YES</td>
+              <td><span class="tag pending">PENDING</span></td>
+              <td class="actions">
+                <button class="btnPrimary btnSmall" type="button">APPROVE</button>
+                <button class="btnGhost btnSmall" type="button">REJECT</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>NOVA SQUAD</td>
+              <td>ARUN</td>
+              <td>+94 XXXXXXXX</td>
+              <td>NO</td>
+              <td><span class="tag pending">PENDING</span></td>
+              <td class="actions">
+                <button class="btnPrimary btnSmall" type="button">APPROVE</button>
+                <button class="btnGhost btnSmall" type="button">REJECT</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>BLUE VIPERS</td>
+              <td>KAVIN</td>
+              <td>+94 XXXXXXXX</td>
+              <td>YES</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+              <td class="actions">
+                <button class="btnGhost btnSmall" type="button">VIEW</button>
+                <button class="btnGhost btnSmall" type="button">BLOCK</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        NOTE: Approve panna teams-ku mattum Room ID/PASS visible ஆகும்.
+      </div>
+    </section>
+
+    <!-- Room Publish -->
+    <section class="panel">
+      <div class="panelTitle">ROOM PUBLISH</div>
+
+      <div class="adminSplit">
+        <div class="glassCard adminCard">
+          <div class="cardTitle">SELECT MATCH</div>
+          <div class="cardText">Match number / stage</div>
+          <select class="select">
+            <option>QUALIFIER 1 (MATCH 01)</option>
+            <option selected>QUALIFIER 2 (MATCH 02)</option>
+            <option>QUALIFIER 3 (MATCH 03)</option>
+            <option>GRAND FINAL</option>
+          </select>
+        </div>
+
+        <div class="glassCard adminCard">
+          <div class="cardTitle">ROOM DETAILS</div>
+          <div class="adminStack">
+            <input class="input" placeholder="ROOM ID" value="8745 1122" />
+            <input class="input" placeholder="ROOM PASS" value="SPIDER" />
+            <button class="btnPrimary btnSmall" type="button">PUBLISH ROOM</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Entry -->
+    <section class="panel">
+      <div class="panelTitle">RESULT ENTRY</div>
+
+      <div class="adminSplit">
+        <div class="glassCard adminCard">
+          <div class="cardTitle">MATCH</div>
+          <select class="select">
+            <option selected>QUALIFIER 2 (MATCH 02)</option>
+            <option>QUALIFIER 1 (MATCH 01)</option>
+            <option>QUALIFIER 3 (MATCH 03)</option>
+            <option>GRAND FINAL</option>
+          </select>
+          <div class="cardText">Enter placement + kills. Points auto calc later.</div>
+        </div>
+
+        <div class="glassCard adminCard">
+          <div class="cardTitle">TEAM RESULT</div>
+          <div class="adminStack">
+            <input class="input" placeholder="TEAM NAME" />
+            <input class="input" placeholder="PLACEMENT (1 - 12)" />
+            <input class="input" placeholder="KILLS" />
+            <button class="btnPrimary btnSmall" type="button">SAVE RESULT</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        NOTE: Backend connect pannina placement + kills base panni points auto calculate aagum.
+      </div>
+    </section>
+
+    <!-- Disputes -->
+    <section class="panel">
+      <div class="panelTitle">DISPUTES</div>
+
+      <div class="disputeList">
+        <div class="disputeCard">
+          <div class="miniTitle">OPEN</div>
+          <div class="disputeTitle">MATCH 02 • TEAM: PHANTOM X</div>
+          <div class="cardText">“Enemy team using wrong UID. Please verify.”</div>
+          <div class="btnRow">
+            <button class="btnPrimary btnSmall" type="button">RESOLVE</button>
+            <button class="btnGhost btnSmall" type="button">REJECT</button>
+          </div>
+        </div>
+
+        <div class="disputeCard">
+          <div class="miniTitle">OPEN</div>
+          <div class="disputeTitle">MATCH 01 • TEAM: VOID RUSH</div>
+          <div class="cardText">“Result screenshot mismatch. Need correction.”</div>
+          <div class="btnRow">
+            <button class="btnPrimary btnSmall" type="button">RESOLVE</button>
+            <button class="btnGhost btnSmall" type="button">REJECT</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • ADMIN
+    </footer>
+  </main><script>
+const API = "http://localhost:5000";
+const ADMIN_TOKEN = "SPIDER_ADMIN_123"; // .env-ல இருக்குற token
+
+// Helper: Admin request with token
+async function adminFetch(url, options = {}) {
+  const res = await fetch(API + url, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      "x-admin-token": ADMIN_TOKEN,
+      ...(options.headers || {})
+    }
+  });
+  return res.json();
+}
+
+/* ✅ 1) Approve team demo (Team ID = 1 change pannalam)
+   Team ID எங்கிருந்து வரும்?
+   - Database teams table-la id
+   - or teams page fetch la வரும்
+*/
+async function approveTeam(teamId){
+  const data = await adminFetch(`/api/teams/${teamId}/approve`, { method: "POST" });
+  if(!data.ok) return alert("Approve error: " + data.error);
+  alert("Team approved ✅ (Team ID: " + teamId + ")");
+}
+
+/* ✅ 2) Publish room demo */
+async function publishRoom(matchId, roomId, roomPass){
+  const data = await adminFetch(`/api/matches/${matchId}/publish-room`, {
+    method: "POST",
+    body: JSON.stringify({ roomId, roomPass, publish: true })
+  });
+  if(!data.ok) return alert("Publish error: " + data.error);
+  alert("Room published ✅ (Match ID: " + matchId + ")");
+}
+
+/* ✅ 3) Add result demo */
+async function addResult(matchId, teamId, placement, kills){
+  const data = await adminFetch(`/api/matches/${matchId}/result`, {
+    method: "POST",
+    body: JSON.stringify({ teamId, placement, kills })
+  });
+  if(!data.ok) return alert("Result error: " + data.error);
+  alert(`Result saved ✅ Points = ${data.points}`);
+}
+
+/* --- QUICK TEST BUTTONS (Keyboard) ---
+   Browser open admin.html → F12 console → type:
+   approveTeam(1)
+   publishRoom(2, "8745 1122", "SPIDER")
+   addResult(2, 1, 2, 14)
+*/
+</script>
+
+</body>
+</html>

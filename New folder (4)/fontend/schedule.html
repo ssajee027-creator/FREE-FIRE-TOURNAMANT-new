@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule • Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body><script>
+const API = "http://localhost:5000";
+
+async function loadMatches(){
+  const res = await fetch(API + "/api/matches?tournamentId=1");
+  const data = await res.json();
+  if(!data.ok) return;
+
+  // quick demo: just log for now
+  console.log("Matches:", data.matches);
+}
+loadMatches();
+</script>
+
+  <!-- Background (same as home) -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html" class="brandLink">
+        <img src="assets/logo.png" class="logo" alt="logo" />
+        <div class="brandText">
+          <div class="brandTitle">SPIDER FF</div>
+          <div class="brandSub">TOURNAMENT PLATFORM</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html#rules">RULES</a>
+      <a class="ctaSmall" href="schedule.html">SCHEDULE</a>
+      <a href="leaderboard.html">LEADERBOARD</a>
+      <a href="register.html">REGISTER</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Page Head -->
+    <section class="pageHead">
+      <div class="chip">MATCH LIST • ROOM ID/PASS (ADMIN PUBLISH)</div>
+      <h1 class="title">MATCH <span class="glow">SCHEDULE</span></h1>
+      <p class="desc">
+        Room details will be visible only when Admin publishes. (UI demo version)
+      </p>
+    </section>
+
+    <!-- Timeline / Matches -->
+    <section class="panel">
+      <div class="panelTitle">QUALIFIERS</div>
+
+      <div class="matchList">
+        <!-- Match 1 -->
+        <article class="matchCard">
+          <div class="matchLeft">
+            <div class="matchTag">QUALIFIER</div>
+            <div class="matchTitle">MATCH 01</div>
+            <div class="matchMeta">DATE: 2026-01-25 • TIME: 07:30 PM</div>
+          </div>
+
+          <div class="matchRight">
+            <div class="roomBox locked">
+              <div class="roomLbl">ROOM ID</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <div class="roomBox locked">
+              <div class="roomLbl">PASS</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <a class="btnGhost btnSmall" href="leaderboard.html">VIEW RESULT</a>
+          </div>
+        </article>
+
+        <!-- Match 2 -->
+        <article class="matchCard">
+          <div class="matchLeft">
+            <div class="matchTag">QUALIFIER</div>
+            <div class="matchTitle">MATCH 02</div>
+            <div class="matchMeta">DATE: 2026-01-26 • TIME: 07:30 PM</div>
+          </div>
+
+          <div class="matchRight">
+            <div class="roomBox live">
+              <div class="roomLbl">ROOM ID</div>
+              <div class="roomVal">8745 1122</div>
+            </div>
+            <div class="roomBox live">
+              <div class="roomLbl">PASS</div>
+              <div class="roomVal">SPIDER</div>
+            </div>
+            <a class="btnPrimary btnSmall" href="register.html">JOIN INFO</a>
+          </div>
+        </article>
+
+        <!-- Match 3 -->
+        <article class="matchCard">
+          <div class="matchLeft">
+            <div class="matchTag">QUALIFIER</div>
+            <div class="matchTitle">MATCH 03</div>
+            <div class="matchMeta">DATE: 2026-01-27 • TIME: 07:30 PM</div>
+          </div>
+
+          <div class="matchRight">
+            <div class="roomBox locked">
+              <div class="roomLbl">ROOM ID</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <div class="roomBox locked">
+              <div class="roomLbl">PASS</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <a class="btnGhost btnSmall" href="register.html">REGISTER</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Finals -->
+    <section class="panel">
+      <div class="panelTitle">GRAND FINAL</div>
+
+      <div class="matchList">
+        <article class="matchCard finalGlow">
+          <div class="matchLeft">
+            <div class="matchTag final">FINAL</div>
+            <div class="matchTitle">GRAND FINAL</div>
+            <div class="matchMeta">DATE: 2026-01-28 • TIME: 08:00 PM</div>
+          </div>
+
+          <div class="matchRight">
+            <div class="roomBox locked">
+              <div class="roomLbl">ROOM ID</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <div class="roomBox locked">
+              <div class="roomLbl">PASS</div>
+              <div class="roomVal">LOCKED</div>
+            </div>
+            <a class="btnPrimary btnSmall" href="leaderboard.html">LIVE BOARD</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        NOTE: Admin publish panna apram “LOCKED” replace ஆகும். Verified teams only.
+      </div>
+    </section>
+
+    <!-- Quick Rules -->
+    <section class="grid">
+      <div class="glassCard">
+        <div class="cardTitle">ROOM RULE</div>
+        <div class="cardText">ROOM OPEN 10 MIN BEFORE MATCH. LATE ENTRY = DISQUALIFY.</div>
+      </div>
+      <div class="glassCard">
+        <div class="cardTitle">PROOF</div>
+        <div class="cardText">EACH TEAM MUST KEEP RESULT SCREENSHOT FOR DISPUTE.</div>
+      </div>
+      <div class="glassCard">
+        <div class="cardTitle">DISPUTE</div>
+        <div class="cardText">DISPUTE WINDOW 15 MIN AFTER MATCH END.</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • SCHEDULE
+    </footer>
+  </main>
+</body>
+</html>

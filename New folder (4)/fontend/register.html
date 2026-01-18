@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register • Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body><script>
+const API = "http://localhost:5000";
+
+document.querySelector(".btnPrimary").addEventListener("click", async () => {
+  const inputs = Array.from(document.querySelectorAll("input"));
+  const val = (i) => (inputs[i]?.value || "").trim();
+
+  // Adjust indexes based on your register.html order:
+  const payload = {
+    tournamentId: 1,
+    tournamentCode: val(0),
+    teamName: val(1),
+    captainName: val(2),
+    captainPhone: val(3),
+    captainUid: val(4),
+    players: [
+      { name: val(5),  uid: val(6)  },
+      { name: val(7),  uid: val(8)  },
+      { name: val(9),  uid: val(10) },
+      { name: val(11), uid: val(12) }
+    ],
+    sub: { name: val(13), uid: val(14) },
+    paymentPaid: val(15) || "NO",
+    paymentRef: val(16) || null
+  };
+
+  try {
+    const res = await fetch(API + "/api/teams/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!data.ok) return alert("Error: " + data.error);
+    alert("Registered! Team ID: " + data.teamId + " (Admin approval pending)");
+    window.location.href = "teams.html";
+  } catch (e) {
+    alert("Network error: " + e.message);
+  }
+});
+</script>
+
+  <!-- Background (same as home) -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html" class="brandLink">
+        <img src="assets/logo.png" class="logo" alt="logo" />
+        <div class="brandText">
+          <div class="brandTitle">SPIDER FF</div>
+          <div class="brandSub">TOURNAMENT PLATFORM</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html#rules">RULES</a>
+      <a href="index.html#schedule">SCHEDULE</a>
+      <a href="index.html#leaderboard">LEADERBOARD</a>
+      <a class="ctaSmall" href="register.html">REGISTER</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Page Head -->
+    <section class="pageHead">
+      <div class="chip">TEAM ENTRY • SQUAD</div>
+      <h1 class="title">TEAM <span class="glow">REGISTRATION</span></h1>
+      <p class="desc">
+        Fill correct UID details. Wrong UID = disqualified. Screenshot proof may be required.
+      </p>
+    </section>
+
+    <!-- Form -->
+    <section class="panel">
+      <div class="panelTitle">CAPTAIN & TEAM</div>
+
+      <div class="formGrid">
+        <input class="input" placeholder="TOURNAMENT CODE (ex: SPIDER01)" />
+        <input class="input" placeholder="TEAM NAME" />
+        <input class="input" placeholder="CAPTAIN NAME" />
+        <input class="input" placeholder="CAPTAIN PHONE (WhatsApp)" />
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panelTitle">PLAYERS (4)</div>
+      <div class="playersGrid">
+        <!-- Player 1 -->
+        <div class="playerCard">
+          <div class="miniTitle">PLAYER 1</div>
+          <input class="input" placeholder="PLAYER NAME" />
+          <input class="input" placeholder="FREE FIRE UID" />
+        </div>
+
+        <!-- Player 2 -->
+        <div class="playerCard">
+          <div class="miniTitle">PLAYER 2</div>
+          <input class="input" placeholder="PLAYER NAME" />
+          <input class="input" placeholder="FREE FIRE UID" />
+        </div>
+
+        <!-- Player 3 -->
+        <div class="playerCard">
+          <div class="miniTitle">PLAYER 3</div>
+          <input class="input" placeholder="PLAYER NAME" />
+          <input class="input" placeholder="FREE FIRE UID" />
+        </div>
+
+        <!-- Player 4 -->
+        <div class="playerCard">
+          <div class="miniTitle">PLAYER 4</div>
+          <input class="input" placeholder="PLAYER NAME" />
+          <input class="input" placeholder="FREE FIRE UID" />
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panelTitle">OPTIONAL SUB</div>
+      <div class="formGrid">
+        <input class="input" placeholder="SUB PLAYER NAME (optional)" />
+        <input class="input" placeholder="SUB FREE FIRE UID (optional)" />
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panelTitle">PAYMENT (IF ANY)</div>
+      <div class="formGrid">
+        <input class="input" placeholder="ENTRY FEE PAID? (YES/NO)" />
+        <input class="input" placeholder="PAYMENT REF / TXN ID (optional)" />
+      </div>
+
+      <div class="note">
+        THIS PAGE UI ONLY. Backend connect pannina submit real-aa database-la save aagum.
+      </div>
+
+      <div class="btnRow">
+        <button class="btnPrimary" type="button">SUBMIT ENTRY</button>
+        <a class="btnGhost" href="index.html">BACK TO HOME</a>
+      </div>
+    </section>
+
+    <!-- Side Info -->
+    <section class="grid">
+      <div class="glassCard">
+        <div class="cardTitle">VERIFY</div>
+        <div class="cardText">ADMIN APPROVAL AFTER CHECKING UIDs & PAYMENT.</div>
+      </div>
+      <div class="glassCard">
+        <div class="cardTitle">ROOM INFO</div>
+        <div class="cardText">ROOM ID/PASS WILL BE SHARED ONLY TO APPROVED TEAMS.</div>
+      </div>
+      <div class="glassCard">
+        <div class="cardTitle">POINTS</div>
+        <div class="cardText">KILL = 1 • TIEBREAK = KILLS • LIVE LEADERBOARD.</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • REGISTRATION PAGE
+    </footer>
+  </main>
+</body>
+</html>

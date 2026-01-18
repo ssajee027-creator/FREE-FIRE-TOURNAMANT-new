@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard • Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body><script>
+const API = "http://localhost:5000";
+
+async function loadBoard(){
+  const res = await fetch(API + "/api/leaderboard?tournamentId=1");
+  const data = await res.json();
+  if(!data.ok) return;
+
+  const tbody = document.querySelector("table.lbTable tbody");
+  tbody.innerHTML = "";
+
+  data.leaderboard.forEach((t, idx) => {
+    const tr = document.createElement("tr");
+    if(idx === 0) tr.className = "rowGlow";
+    tr.innerHTML = `
+      <td>#${idx+1}</td>
+      <td>${t.teamName}</td>
+      <td>-</td>
+      <td>${t.totalKills}</td>
+      <td>${t.totalPoints}</td>
+      <td><span class="tag ok">VERIFIED</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+loadBoard();
+</script>
+
+  <!-- Background (same as home) -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html" class="brandLink">
+        <img src="assets/logo.png" class="logo" alt="logo" />
+        <div class="brandText">
+          <div class="brandTitle">SPIDER FF</div>
+          <div class="brandSub">TOURNAMENT PLATFORM</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html#rules">RULES</a>
+      <a href="schedule.html">SCHEDULE</a>
+      <a class="ctaSmall" href="leaderboard.html">LEADERBOARD</a>
+      <a href="register.html">REGISTER</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Page Head -->
+    <section class="pageHead">
+      <div class="chip">LIVE • AUTO RANK • TIEBREAK = KILLS</div>
+      <h1 class="title">LIVE <span class="glow">LEADERBOARD</span></h1>
+      <p class="desc">Admin verify panna apram points update ஆகும். (UI demo version)</p>
+    </section>
+
+    <!-- Top 3 -->
+    <section class="podium">
+      <div class="podCard p2">
+        <div class="podRank">#2</div>
+        <div class="podTeam">NOVA SQUAD</div>
+        <div class="podMeta">POINTS: 74 • KILLS: 38</div>
+      </div>
+
+      <div class="podCard p1">
+        <div class="podRank">#1</div>
+        <div class="podTeam">SHADOW KINGS</div>
+        <div class="podMeta">POINTS: 81 • KILLS: 44</div>
+        <div class="podBadge">CHAMPION</div>
+      </div>
+
+      <div class="podCard p3">
+        <div class="podRank">#3</div>
+        <div class="podTeam">BLUE VIPERS</div>
+        <div class="podMeta">POINTS: 69 • KILLS: 35</div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="lbControls">
+      <div class="controlCard">
+        <div class="miniTitle">FILTER</div>
+        <div class="controlRow">
+          <select class="select">
+            <option>OVERALL</option>
+            <option>QUALIFIER 1</option>
+            <option>QUALIFIER 2</option>
+            <option>QUALIFIER 3</option>
+            <option>FINAL</option>
+          </select>
+
+          <select class="select">
+            <option>SQUAD</option>
+            <option>DUO</option>
+            <option>SOLO</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="controlCard">
+        <div class="miniTitle">SEARCH TEAM</div>
+        <input class="input" placeholder="TYPE TEAM NAME..." />
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="panel">
+      <div class="panelTitle">RANKINGS</div>
+
+      <div class="tableWrap">
+        <table class="lbTable">
+          <thead>
+            <tr>
+              <th>RANK</th>
+              <th>TEAM</th>
+              <th>MATCHES</th>
+              <th>KILLS</th>
+              <th>POINTS</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="rowGlow">
+              <td>#1</td>
+              <td>SHADOW KINGS</td>
+              <td>3</td>
+              <td>44</td>
+              <td>81</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>#2</td>
+              <td>NOVA SQUAD</td>
+              <td>3</td>
+              <td>38</td>
+              <td>74</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>#3</td>
+              <td>BLUE VIPERS</td>
+              <td>3</td>
+              <td>35</td>
+              <td>69</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>#4</td>
+              <td>PHANTOM X</td>
+              <td>3</td>
+              <td>33</td>
+              <td>66</td>
+              <td><span class="tag pending">PENDING</span></td>
+            </tr>
+            <tr>
+              <td>#5</td>
+              <td>VENOM UNIT</td>
+              <td>3</td>
+              <td>30</td>
+              <td>61</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>#6</td>
+              <td>NEON WOLVES</td>
+              <td>3</td>
+              <td>28</td>
+              <td>58</td>
+              <td><span class="tag pending">PENDING</span></td>
+            </tr>
+            <tr>
+              <td>#7</td>
+              <td>VOID RUSH</td>
+              <td>3</td>
+              <td>26</td>
+              <td>55</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>#8</td>
+              <td>SPIDER CREW</td>
+              <td>3</td>
+              <td>24</td>
+              <td>51</td>
+              <td><span class="tag ok">VERIFIED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        NOTE: Backend connect pannina “Overall / Match filter / Search” real-time work ஆகும்.
+      </div>
+
+      <div class="btnRow">
+        <a class="btnPrimary" href="register.html">REGISTER NOW</a>
+        <a class="btnGhost" href="index.html">BACK TO HOME</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • LEADERBOARD
+    </footer>
+  </main>
+</body>
+</html>

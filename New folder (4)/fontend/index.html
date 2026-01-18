@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" class="logo" alt="logo" />
+      <div class="brandText">
+        <div class="brandTitle">SPIDER FF</div>
+        <div class="brandSub">TOURNAMENT PLATFORM</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#rules">RULES</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#leaderboard">LEADERBOARD</a>
+      <a class="ctaSmall" href="#register">REGISTER</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="register">
+      <div class="heroLeft">
+        <div class="chip">FREE FIRE • SQUAD • EXTREME</div>
+
+        <h1 class="title">
+          ENTER THE <span class="glow">SHADOW ARENA</span>
+        </h1>
+
+        <p class="desc">
+          48 Teams • 3 Qualifiers + 1 Final • Kill = 1 Point • Live Leaderboard
+        </p>
+
+        <div class="btnRow">
+          <a class="btnPrimary" href="register.html">REGISTER NOW</a>
+          <a class="btnPrimary" href="leaderboard.html">LEADERBOARD</a>
+        </div>
+
+        <div class="stats">
+          <div class="statCard">
+            <div class="statNum">48</div>
+            <div class="statLbl">TEAMS</div>
+          </div>
+          <div class="statCard">
+            <div class="statNum">4</div>
+            <div class="statLbl">PLAYERS</div>
+          </div>
+          <div class="statCard">
+            <div class="statNum">1</div>
+            <div class="statLbl">KILL PT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="heroFrame">
+          <img src="assets/hero.png" class="heroImg" alt="hero" />
+          <div class="ring"></div>
+          <div class="ring ring2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO CARDS -->
+    <section class="grid">
+      <div class="glassCard" id="rules">
+        <div class="cardTitle">RULES</div>
+        <div class="cardText">
+          SQUAD ONLY • 4 PLAYERS • SUB OPTIONAL • NO HACKS • SCREENSHOT PROOF
+        </div>
+      </div>
+
+      <div class="glassCard" id="schedule">
+        <div class="cardTitle">SCHEDULE</div>
+        <div class="cardText">
+          QUALIFIER 1 • QUALIFIER 2 • QUALIFIER 3 • GRAND FINAL
+        </div>
+      </div>
+
+      <div class="glassCard" id="leaderboard">
+        <div class="cardTitle">LEADERBOARD</div>
+        <div class="cardText">
+          LIVE POINTS • TIEBREAK = KILLS • AUTO RANKING • ADMIN VERIFY
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE REGISTER FORM (UI only) -->
+    <section class="formWrap" id="registerForm">
+      <div class="formTitle">TEAM REGISTRATION</div>
+
+      <div class="formGrid">
+        <input class="input" placeholder="TEAM NAME" />
+        <input class="input" placeholder="CAPTAIN NAME" />
+        <input class="input" placeholder="CAPTAIN PHONE" />
+        <input class="input" placeholder="CAPTAIN UID" />
+      </div>
+
+      <div class="btnRow">
+        <button class="btnPrimary" type="button">SUBMIT</button>
+        <button class="btnGhost" type="button">CONTACT ADMIN</button>
+      </div>
+
+      <div class="note">
+        NOTE: SUBMIT BUTTON இப்போ UI மட்டும். Backend add பண்ணினா real registration ஆகும்.
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • BLUE/PURPLE EDITION • POWERED BY SAJEEVAN
+    </footer>
+  </main>
+</body>
+</html>

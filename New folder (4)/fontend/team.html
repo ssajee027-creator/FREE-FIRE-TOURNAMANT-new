@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teams • Spider FF Tournament</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html" class="brandLink">
+        <img src="assets/logo.png" class="logo" alt="logo" />
+        <div class="brandText">
+          <div class="brandTitle">SPIDER FF</div>
+          <div class="brandSub">TEAMS & ROSTERS</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="schedule.html">SCHEDULE</a>
+      <a href="leaderboard.html">LEADERBOARD</a>
+      <a class="ctaSmall" href="teams.html">TEAMS</a>
+      <a href="register.html">REGISTER</a>
+      <a href="admin.html">ADMIN</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Head -->
+    <section class="pageHead">
+      <div class="chip">APPROVED TEAMS • UID VERIFIED</div>
+      <h1 class="title">TEAM <span class="glow">LIST</span></h1>
+      <p class="desc">UI demo. Backend connect pannina real registered teams show aagum.</p>
+    </section>
+
+    <!-- Controls -->
+    <section class="lbControls">
+      <div class="controlCard">
+        <div class="miniTitle">SEARCH</div>
+        <input class="input" placeholder="TYPE TEAM NAME..." />
+      </div>
+
+      <div class="controlCard">
+        <div class="miniTitle">FILTER</div>
+        <div class="controlRow">
+          <select class="select">
+            <option selected>APPROVED</option>
+            <option>PENDING</option>
+            <option>REJECTED</option>
+          </select>
+
+          <select class="select">
+            <option selected>SQUAD</option>
+            <option>DUO</option>
+            <option>SOLO</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Cards -->
+    <section class="teamGrid">
+      <article class="teamCard teamGlow">
+        <div class="teamTop">
+          <div>
+            <div class="teamName">SHADOW KINGS</div>
+            <div class="teamMeta">CAPTAIN: RAJ • STATUS: VERIFIED</div>
+          </div>
+          <span class="tag ok">APPROVED</span>
+        </div>
+
+        <div class="teamStats">
+          <div class="tStat"><span>PLAYERS</span><b>4</b></div>
+          <div class="tStat"><span>SUB</span><b>1</b></div>
+          <div class="tStat"><span>PAYMENT</span><b>YES</b></div>
+        </div>
+
+        <div class="btnRow">
+          <a class="btnPrimary btnSmall" href="#teamProfile">VIEW ROSTER</a>
+          <a class="btnGhost btnSmall" href="leaderboard.html">VIEW RANK</a>
+        </div>
+      </article>
+
+      <article class="teamCard">
+        <div class="teamTop">
+          <div>
+            <div class="teamName">NOVA SQUAD</div>
+            <div class="teamMeta">CAPTAIN: ARUN • STATUS: VERIFIED</div>
+          </div>
+          <span class="tag ok">APPROVED</span>
+        </div>
+
+        <div class="teamStats">
+          <div class="tStat"><span>PLAYERS</span><b>4</b></div>
+          <div class="tStat"><span>SUB</span><b>0</b></div>
+          <div class="tStat"><span>PAYMENT</span><b>NO</b></div>
+        </div>
+
+        <div class="btnRow">
+          <a class="btnPrimary btnSmall" href="#teamProfile">VIEW ROSTER</a>
+          <a class="btnGhost btnSmall" href="leaderboard.html">VIEW RANK</a>
+        </div>
+      </article>
+
+      <article class="teamCard">
+        <div class="teamTop">
+          <div>
+            <div class="teamName">BLUE VIPERS</div>
+            <div class="teamMeta">CAPTAIN: KAVIN • STATUS: VERIFIED</div>
+          </div>
+          <span class="tag ok">APPROVED</span>
+        </div>
+
+        <div class="teamStats">
+          <div class="tStat"><span>PLAYERS</span><b>4</b></div>
+          <div class="tStat"><span>SUB</span><b>1</b></div>
+          <div class="tStat"><span>PAYMENT</span><b>YES</b></div>
+        </div>
+
+        <div class="btnRow">
+          <a class="btnPrimary btnSmall" href="#teamProfile">VIEW ROSTER</a>
+          <a class="btnGhost btnSmall" href="leaderboard.html">VIEW RANK</a>
+        </div>
+      </article>
+
+      <article class="teamCard">
+        <div class="teamTop">
+          <div>
+            <div class="teamName">PHANTOM X</div>
+            <div class="teamMeta">CAPTAIN: SURA • STATUS: PENDING</div>
+          </div>
+          <span class="tag pending">PENDING</span>
+        </div>
+
+        <div class="teamStats">
+          <div class="tStat"><span>PLAYERS</span><b>4</b></div>
+          <div class="tStat"><span>SUB</span><b>0</b></div>
+          <div class="tStat"><span>PAYMENT</span><b>YES</b></div>
+        </div>
+
+        <div class="btnRow">
+          <a class="btnGhost btnSmall" href="register.html">EDIT ENTRY</a>
+          <a class="btnGhost btnSmall" href="admin.html">ADMIN VIEW</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Team Profile Section (UI) -->
+    <section class="panel" id="teamProfile">
+      <div class="panelTitle">TEAM PROFILE</div>
+
+      <div class="profileGrid">
+        <div class="glassCard">
+          <div class="cardTitle">TEAM</div>
+          <div class="profileTitle">SHADOW KINGS</div>
+          <div class="cardText">CAPTAIN: RAJ • PHONE: +94 XXXXXXXX</div>
+          <div class="cardText">STATUS: VERIFIED • PAYMENT: YES</div>
+        </div>
+
+        <div class="glassCard">
+          <div class="cardTitle">ROSTER</div>
+          <div class="roster">
+            <div class="rosterRow"><span>PLAYER 1</span><b>RAJ • UID: 123456789</b></div>
+            <div class="rosterRow"><span>PLAYER 2</span><b>ARAV • UID: 223456789</b></div>
+            <div class="rosterRow"><span>PLAYER 3</span><b>KAVI • UID: 323456789</b></div>
+            <div class="rosterRow"><span>PLAYER 4</span><b>VINU • UID: 423456789</b></div>
+            <div class="rosterRow sub"><span>SUB</span><b>NIL • UID: 523456789</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btnRow">
+        <a class="btnPrimary" href="schedule.html">MATCH SCHEDULE</a>
+        <a class="btnGhost" href="leaderboard.html">LEADERBOARD</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 SPIDER FF TOURNAMENT • TEAMS
+    </footer>
+  </main>
+</body>
+</html>
